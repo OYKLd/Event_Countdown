@@ -3,80 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compte à Rebours Événement</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Compte à Rebours</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="countdown-container">
-        <div class="event-card">
-            <h1 class="event-title">Événement à Venir</h1>
-            <div class="countdown">
-                <div class="time-block">
-                    <span class="number" id="days">00</span>
-                    <span class="label">Jours</span>
+    <div class="container">
+        <div class="card">
+            <h1 class="event-name" id="eventName">Nouvel An 2027</h1>
+            <p class="event-date" id="eventDate">1er janvier 2027 à 00:00</p>
+            
+            <div id="countdownDisplay" class="countdown">
+                <div class="time-unit">
+                    <div class="time-value" id="days">00</div>
+                    <div class="time-label">Jours</div>
                 </div>
-                <div class="time-block">
-                    <span class="number" id="hours">00</span>
-                    <span class="label">Heures</span>
+                <div class="time-unit">
+                    <div class="time-value" id="hours">00</div>
+                    <div class="time-label">Heures</div>
                 </div>
-                <div class="time-block">
-                    <span class="number" id="minutes">00</span>
-                    <span class="label">Minutes</span>
+                <div class="time-unit">
+                    <div class="time-value" id="minutes">00</div>
+                    <div class="time-label">Minutes</div>
                 </div>
-                <div class="time-block">
-                    <span class="number" id="seconds">00</span>
-                    <span class="label">Secondes</span>
-                </div>
-            </div>
-            <div class="event-details">
-                <div class="detail">
-                    <i class="fas fa-calendar-alt"></i>
-                    <span id="event-date">1 Janvier 2025</span>
-                </div>
-                <div class="detail">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span id="event-location">Lieu de l'événement</span>
+                <div class="time-unit">
+                    <div class="time-value" id="seconds">00</div>
+                    <div class="time-label">Secondes</div>
                 </div>
             </div>
-            <div class="progress-container">
-                <div class="progress-bar" id="progress-bar"></div>
+
+            <div id="expiredMessage" class="expired" style="display: none;">
+                🎉 L'événement est arrivé ! 🎉
+            </div>
+
+            <div class="edit-section">
+                <input type="text" id="nameInput" placeholder="Nom de l'événement">
+                <input type="datetime-local" id="dateInput">
+                <button onclick="updateEvent()">Mettre à jour</button>
             </div>
         </div>
     </div>
+<script src="script.js"></script>
 
-    <div class="edit-panel" id="editPanel">
-        <button class="edit-toggle" id="editToggle">
-            <i class="fas fa-cog"></i>
-        </button>
-        <div class="edit-form">
-            <h3>Modifier l'événement</h3>
-            <div class="form-group">
-                <label for="eventTitle">Titre de l'événement</label>
-                <input type="text" id="eventTitle" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="eventDate">Date et heure</label>
-                <input type="datetime-local" id="eventDate" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="eventLocation">Lieu</label>
-                <input type="text" id="eventLocation" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="eventDescription">Description (optionnel)</label>
-                <textarea id="eventDescription" class="form-control" rows="3"></textarea>
-            </div>
-            <div class="form-actions">
-                <button type="button" id="saveEvent" class="btn-save">Enregistrer</button>
-                <button type="button" id="cancelEdit" class="btn-cancel">Annuler</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
